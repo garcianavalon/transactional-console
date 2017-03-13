@@ -17,17 +17,6 @@ describe('transactional-console', function() {
     this.sinon.restore();
   });
 
-  /*describe('console.log', function(){
-
-    it('should log correctly', function(done){
-      const originalStub = this.sinon.stub(transactionalConsole.originalFunctions, "debug");
-      transactionalConsole.log(fakeMessage, 'test message')
-      assert(originalStub.withArgs('Transaction test-trans-id: test message').calledOnce);
-      done();
-    });
-
-  }); */
-
   describe('_getTransactionId', function(){
 
     it('should extract trans_id correctly', function(done){
