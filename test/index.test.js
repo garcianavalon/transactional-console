@@ -28,6 +28,39 @@ describe('transactional-console', function() {
 
   });
 
+  describe('transconsole.info', function(){
+
+    it('should log correctly', function(done){
+      const consoleStub = this.sinon.spy(console, "info");
+      transconsole.info(fakeMessage, 'test message')
+      assert(consoleStub.calledWithExactly('Transaction test-trans-id - test message'));
+      done();
+    });
+
+  });
+
+  describe('transconsole.warn', function(){
+
+    it('should log correctly', function(done){
+      const consoleStub = this.sinon.spy(console, "warn");
+      transconsole.warn(fakeMessage, 'test message')
+      assert(consoleStub.calledWithExactly('Transaction test-trans-id - test message'));
+      done();
+    });
+
+  });
+
+  describe('transconsole.error', function(){
+
+    it('should log correctly', function(done){
+      const consoleStub = this.sinon.spy(console, "error");
+      transconsole.error(fakeMessage, 'test message')
+      assert(consoleStub.calledWithExactly('Transaction test-trans-id - test message'));
+      done();
+    });
+
+  });
+
   describe('_getTransactionId', function(){
 
     it('should extract trans_id correctly', function(done){
