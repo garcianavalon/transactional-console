@@ -1,6 +1,6 @@
 const assert = require('power-assert');
 const sinon = require('sinon');
-const transactionalConsole = require('../lib/index');
+const transconsole = require('../lib/index');
 
 describe('transactional-console', function() {
   const fakeMessage = {
@@ -17,10 +17,21 @@ describe('transactional-console', function() {
     this.sinon.restore();
   });
 
+  describe('transconsole.log', function(){
+
+    it('should log correctly', function(done){
+      const consoleStub = this.sinon.spy(console, "log");
+      transconsole.log(fakeMessage, 'test message')
+      assert(consoleStub.calledWithExactly('Transaction test-trans-id - test message'));
+      done();
+    });
+
+  });
+
   describe('_getTransactionId', function(){
 
     it('should extract trans_id correctly', function(done){
-      const transId = transactionalConsole._getTransactionId(fakeMessage);
+      const transId = transconsole._getTransactionId(fakeMessage);
       assert(transId === 'test-trans-id');
       done();
     });
@@ -29,7 +40,7 @@ describe('transactional-console', function() {
       const noTransIdMessage = {
         'trans_map': {}
       };
-      const transId = transactionalConsole._getTransactionId(noTransIdMessage);
+      const transId = transconsole._getTransactionId(noTransIdMessage);
       assert(transId);
       done();
     });
@@ -37,13 +48,13 @@ describe('transactional-console', function() {
     it('should generate new trans_id for messages with no trans_map', function(done){
       const noTransMapMessage = {
       };
-      const transId = transactionalConsole._getTransactionId(noTransMapMessage);
+      const transId = transconsole._getTransactionId(noTransMapMessage);
       assert(transId);
       done();
     });
 
     it('should generate new trans_id for undefined messages', function(done){
-      const transId = transactionalConsole._getTransactionId(undefined);
+      const transId = transconsole._getTransactionId(undefined);
       assert(transId);
       done();
     });
