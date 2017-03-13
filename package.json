@@ -1,10 +1,11 @@
 {
   "name": "transaction-console",
   "version": "0.0.1",
-  "description": "Override of the console object to seamlessly add  a transactional logger",
-  "main": "index.js",
+  "description": "Override of the console object to seamlessly add a transactional logger",
+  "main": "./lib(index.js",
   "scripts": {
-    "test": "test"
+    "test": "mocha --require intelli-espower-loader test/*.test.js",
+    "mocha": "mocha --require intelli-espower-loader"
   },
   "repository": {
     "type": "git",
@@ -21,5 +22,15 @@
   "bugs": {
     "url": "https://github.com/garcianavalon/transactional-console/issues"
   },
-  "homepage": "https://github.com/garcianavalon/transactional-console#readme"
+  "homepage": "https://github.com/garcianavalon/transactional-console#readme",
+  "devDependencies": {
+    "intelli-espower-loader": "1.0.1",
+    "mocha": "2.5.2",
+    "power-assert": "1.4.1",
+    "sinon": "^1.17.7"
+  },
+  "dependencies": {
+    "uuid": "~3.0.1",
+    "debug": "~2.2.0"
+  }
 }
