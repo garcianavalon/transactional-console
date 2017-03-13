@@ -1,0 +1,25 @@
+{
+  "name": "transaction-console",
+  "version": "0.0.1",
+  "description": "Override of the console object to seamlessly add  a transactional logger",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/garcianavalon/transactional-console.git"
+  },
+  "keywords": [
+    "console",
+    "logger",
+    "log",
+    "transaction"
+  ],
+  "author": "Enrique Garcia Navalon <garcianavalon@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/garcianavalon/transactional-console/issues"
+  },
+  "homepage": "https://github.com/garcianavalon/transactional-console#readme"
+}
